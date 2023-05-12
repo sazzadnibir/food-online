@@ -78,11 +78,12 @@ WSGI_APPLICATION = "foodonline.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
+        "ENGINE": "django.db.backends.sqlite3",
         "NAME": config("DB_NAME"),
         "USER": config("DB_USER"),
         "PASSWORD": config("DB_PASS"),
         "HOST": config("DB_HOST", default="localhost"),
+        "PORT": config("DB_PORT"),
     }
 }
 
@@ -127,6 +128,9 @@ STATIC_ROOT = BASE_DIR / 'static_files'
 STATICFILES_DIRS = [
     BASE_DIR / 'foodonline/static'
 ]
+
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
