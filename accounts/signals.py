@@ -17,13 +17,14 @@ def poast_save_create_profile_receiver(sender, instance, created, **kwargs):
         except:
             # Create the user profile if not exists
             UserProfile.objects.create(user=instance)
-            print("Profile was not exists, but I created one")
+            # print("Profile was not exists, but I created one")
 
-        print("User is updated")
+        # print("User is updated")
     
 
 @receiver(pre_save, sender=User)
 def pre_save_profile_receiver(sender, instance, **kwargs):
-    print(instance.username, "this user is being saved")
+    pass
+    # print(instance.username, "this user is being saved")
 
 # post_save.connect(poast_save_create_profile_receiver, sender=User)
