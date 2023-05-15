@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.contrib import messages
 from .forms import UserForm
 from .models import User
 
@@ -31,6 +32,8 @@ def register_user(request):
             )
             user.role = User.CUSTOMER
             user.save()
+            messages.success(request, "You account has been registered successfully")
+            
             return redirect("register-user")
         else:
             print("invalid form")
